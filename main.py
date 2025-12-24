@@ -1,6 +1,5 @@
 import pandas as pd
-
-print("--- House Price Project Started ---")
+from sklearn.linear_model import LinearRegression
 
 # Creating a tiny dataset manually so you don't need a CSV yet
 data = {
@@ -9,7 +8,11 @@ data = {
 }
 
 df = pd.DataFrame(data)
-print("Here is my starting data:")
-print(df)
+x=df[['SqFt']]
+y=df['Price']
+model = LinearRegression()
+model.fit(x,y)
 
-print("\nNext step: Downloading the full Kaggle dataset!")
+new_house_size = [[2800]]
+predicted_price = model.predict(new_house_size)
+print (f"Prediction for 2800 SqFt: ${predicted_price[0]:,.2f}")
