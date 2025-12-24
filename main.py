@@ -17,3 +17,7 @@ new_house_size = [[2800]]
 predicted_price = model.predict(new_house_size)
 print (f"Prediction for 2800 SqFt: ${predicted_price[0]:,.2f}")
 # Final push for Project 1
+
+
+accuracy = model.score(X, y)
+print(f"Model Accuracy (R² Score): {accuracy * 100:.2f}%")
